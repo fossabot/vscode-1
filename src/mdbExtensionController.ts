@@ -9,6 +9,7 @@ import ConnectionController from './connectionController';
 import { ExplorerController } from './explorer';
 import { StatusView } from './views';
 import { createLogger } from './logging';
+import { SunburstController } from './sunburst';
 
 const log = createLogger('commands');
 
@@ -49,6 +50,12 @@ export default class MDBExtensionController implements vscode.Disposable {
 
     vscode.commands.registerCommand('mdb.refresh', () => this._explorerController.refresh());
     vscode.commands.registerCommand('mdb.reload', () => this._explorerController.refresh());
+
+    vscode.commands.registerCommand('mdb.openSunburst', (treeItemSelected: any) => {
+      console.log('openSunburst', treeItemSelected);
+      console.log('open sunburst');
+      new SunburstController(this._connectionController);
+    });
 
     log.info('Registered commands.');
 

@@ -83,8 +83,20 @@
       {
         "command": "mdb.openMongoDBShell",
         "title": "MongoDB: Launch Mongo Shell"
+      },
+      {
+        "command": "mdb.openSunburst",
+        "title": "MongoDB: Open Sunburst"
       }
     ],
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "mdb.openSunburst",
+          "when": "view == mongoDB && viewItem == mongoDBConnectionItem"
+        }
+      ]
+    },
     "configuration": {
       "title": "MongoDB",
       "properties": {
